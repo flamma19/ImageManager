@@ -4,7 +4,6 @@ import "../uploader.css";
 import ProgressBar from "./ProgressBar";
 
 function Uploader() {
-  const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("No selected file");
   const [desc, setDesc] = useState("");
   const [upload, setUpload] = useState(false);
@@ -54,6 +53,14 @@ function Uploader() {
           </div>
         )}
       </form>
+      <input
+        type="text"
+        className="desc-input"
+        value={desc}
+        onChange={(e) => {
+          setDesc(e.target.value);
+        }}
+      />
       <section className="uploaded-row">
         <MdBackup
           color="1475cf"
@@ -66,7 +73,6 @@ function Uploader() {
           {file && file.name}
           <MdDelete
             onClick={() => {
-              setImage(null);
               setFileName("No selected file");
               setDesc("");
               setFile(null);
@@ -74,7 +80,14 @@ function Uploader() {
           />
         </span>
       </section>
-      {upload && file && <ProgressBar file={file} setFile={setFile} />}
+      {upload && file && (
+        <ProgressBar
+          file={file}
+          setFile={setFile}
+          description={desc}
+          setDescription={setDesc}
+        />
+      )}
     </main>
   );
 }

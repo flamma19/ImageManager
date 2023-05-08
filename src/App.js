@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import Title from "./comps/Title";
-import UploadForm from "./comps/UploadForm";
 import ImageGrid from "./comps/ImageGrid";
 import Modal from "./comps/Modal";
 import Uploader from "./comps/Uploader";
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedDesc, setSelectedDesc] = useState("");
 
   return (
     <div className="App">
       <Title />
-      {/* <UploadForm /> */}
       <Uploader />
-      <ImageGrid setSelectedImg={setSelectedImg} />
+      <ImageGrid
+        setSelectedImg={setSelectedImg}
+        setSelectedDesc={setSelectedDesc}
+      />
       {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+        <div>
+          <Modal
+            selectedImg={selectedImg}
+            setSelectedImg={setSelectedImg}
+            desc={selectedDesc}
+            setSelectedDesc={setSelectedDesc}
+          />
+          {console.log(selectedDesc)}
+        </div>
       )}
     </div>
   );

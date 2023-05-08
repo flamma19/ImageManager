@@ -1,25 +1,30 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-const Modal = ({ setSelectedImg, selectedImg }) => {
-
+const Modal = ({ selectedImg, setSelectedImg, desc, setSelectedDesc }) => {
   const handleClick = (e) => {
-    if (e.target.classList.contains('backdrop')) {
+    if (e.target.classList.contains("backdrop")) {
       setSelectedImg(null);
+      setSelectedDesc("");
     }
-  }
+  };
 
   return (
-    <motion.div className="backdrop" onClick={handleClick}
+    <motion.div
+      className="backdrop"
+      onClick={handleClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <motion.img src={selectedImg} alt="enlarged pic" 
+      <motion.img
+        src={selectedImg}
+        alt="enlarged pic"
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
       />
+      <h1 className="desc-modal">{desc}</h1>
     </motion.div>
-  )
-}
+  );
+};
 
 export default Modal;
