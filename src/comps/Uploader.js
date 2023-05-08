@@ -34,7 +34,6 @@ function Uploader() {
             let selected = e.target.files[0];
             selected && setFileName(selected.name);
             if (selected) {
-              // setImage(URL.createObjectURL(selected));
               setFile(selected);
             }
           }}

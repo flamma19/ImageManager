@@ -18,7 +18,6 @@ const ImageGrid = ({ setSelectedImg, setSelectedDesc }) => {
             onClick={() => {
               setSelectedImg(doc.url);
               setSelectedDesc(doc.desc);
-              console.log(doc.desc);
             }}
           >
             <motion.img

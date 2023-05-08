@@ -24,7 +24,6 @@ function App() {
             desc={selectedDesc}
             setSelectedDesc={setSelectedDesc}
           />
-          {console.log(selectedDesc)}
         </div>
       )}
     </div>
