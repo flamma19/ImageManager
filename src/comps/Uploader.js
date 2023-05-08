@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdCloudUpload, MdDelete, MdBackup } from "react-icons/md";
-import { AiFillFileImage } from "react-icons/ai";
 import "../uploader.css";
 import ProgressBar from "./ProgressBar";
 
@@ -10,6 +9,14 @@ function Uploader() {
   const [desc, setDesc] = useState("");
   const [upload, setUpload] = useState(false);
   const [file, setFile] = useState(null);
+
+  useEffect(() => {
+    if (upload) {
+      if (!file) {
+        setUpload(false);
+      }
+    }
+  }, [upload, file]);
 
   return (
     <main className="uploader">
@@ -28,13 +35,18 @@ function Uploader() {
             let selected = e.target.files[0];
             selected && setFileName(selected.name);
             if (selected) {
-              setImage(URL.createObjectURL(selected));
+              // setImage(URL.createObjectURL(selected));
               setFile(selected);
             }
           }}
         />
-        {image ? (
-          <img src={image} width={500} height={300} alt={fileName} />
+        {file ? (
+          <img
+            src={URL.createObjectURL(file)}
+            width={500}
+            height={300}
+            alt={fileName}
+          />
         ) : (
           <div>
             <MdCloudUpload color="#1475cf" size={60} />
@@ -51,17 +63,18 @@ function Uploader() {
           }}
         />
         <span>
-          {fileName}
+          {file && file.name}
           <MdDelete
             onClick={() => {
               setImage(null);
               setFileName("No selected file");
               setDesc("");
+              setFile(null);
             }}
           />
         </span>
       </section>
-      {upload && <ProgressBar file={file} setFile={setFile} />}
+      {upload && file && <ProgressBar file={file} setFile={setFile} />}
     </main>
   );
 }

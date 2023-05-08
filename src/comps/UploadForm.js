@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
+import { MdCloudUpload, MdDelete, MdBackup } from "react-icons/md";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [upload, setUpload] = useState(false);
 
   const types = ["image/png", "image/jpeg", "image/jpg"];
 
@@ -25,6 +27,7 @@ const UploadForm = () => {
         <input type="file" onChange={handleChange} />
         <span>+</span>
       </label>
+
       <div className="output">
         {error && <div className="error">{error}</div>}
         {file && <div>{file.name}</div>}
