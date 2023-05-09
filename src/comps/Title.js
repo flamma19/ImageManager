@@ -9,8 +9,6 @@ const Title = () => {
         <a
           className="github-link"
           href="https://github.com/flamma19/ImageManager"
-          target="_blank"
-          rel="noreferrer"
         >
           <img src={github} alt="github-mark" className="github-logo" />
         </a>
