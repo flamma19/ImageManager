@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ImageManager/static/css/main.52766594.css",
+    "main.js": "/ImageManager/static/js/main.6ed10292.js",
+    "static/media/github.svg": "/ImageManager/static/media/github.6fa18895f6e6c7772cab7049f7e05f59.svg",
+    "index.html": "/ImageManager/index.html",
+    "main.52766594.css.map": "/ImageManager/static/css/main.52766594.css.map",
+    "main.6ed10292.js.map": "/ImageManager/static/js/main.6ed10292.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52766594.css",
+    "static/js/main.6ed10292.js"
+  ]
+}
